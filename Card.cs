@@ -5,7 +5,6 @@ public class Card
     public enum Rank
     {
         Ace,
-        One,
         Two,
         Three,
         Four,
@@ -23,9 +22,9 @@ public class Card
     public enum Suit
     {
         Spade,
-        Diamond,
         Club,
-        Heart
+        Heart,
+        Diamond
     }
 
     internal Card(Rank rank, Suit suit)

@@ -11,7 +11,7 @@ public class Deck : IDeck
 
     public Card DrawCard()
     {
-        throw new NotImplementedException();
+        return Cards.Dequeue();
     }
 
     public void Shuffle()
@@ -19,8 +19,49 @@ public class Deck : IDeck
         throw new NotImplementedException();
     }
 
+
     public void ResetDeck()
     {
+    }
+
+    public void PerfectShuffle()
+    {
+        var leftHalf = NumberOfCards() / 2;
+        
+        Queue<Card> left = new Queue<Card>();
+        Queue<Card> right = new Queue<Card>();
+        int i = 0;
+        while (i < leftHalf)
+        {
+            left.Enqueue(DrawCard());
+            i++;
+        }
+        while (Cards.Count > 0)
+        {
+            right.Enqueue(DrawCard());
+        }
+
+        var getRight = true;
+
+        while (left.Count > 0 || right.Count > 0)
+        {
+            if (getRight)
+            {
+                Cards.Enqueue(right.Dequeue());
+            }
+            else
+            {
+                Cards.Enqueue(left.Dequeue());
+            }
+            getRight = !getRight;
+        }
+        
+        
+    }
+
+    public int NumberOfCards()
+    {
+        return Cards.Count;
     }
 
     private void OpenNewPackOfCards()
@@ -29,7 +70,6 @@ public class Deck : IDeck
         foreach (Card.Rank rank in Enum.GetValues(typeof(Card.Rank)))
         {
             var newCard = new Card(rank, suit);
-            Console.WriteLine(newCard);
             Cards.Enqueue(newCard);
         }
     }
