@@ -4,9 +4,8 @@ namespace BlackJack;
 
 public static class Util
 {
-    
     //TODO.Srikar how to add this statically. I only want one instance period.
-    public static readonly Dictionary<Card.Rank, int> CardValues = new Dictionary<Card.Rank, int>()
+    public static readonly Dictionary<Card.Rank, int> CardValues = new()
     {
         {Card.Rank.Ace, 11},
         {Card.Rank.Two, 2},
@@ -20,7 +19,6 @@ public static class Util
         {Card.Rank.Ten, 10},
         {Card.Rank.Jack, 10},
         {Card.Rank.Queen, 10},
-        {Card.Rank.King, 10},
-
+        {Card.Rank.King, 10}
     };
 }
