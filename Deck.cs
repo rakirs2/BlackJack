@@ -16,7 +16,7 @@ public class Deck : IDeck
 
     public void Shuffle()
     {
-        throw new NotImplementedException();
+        PerfectShuffle();
     }
 
 
@@ -27,19 +27,17 @@ public class Deck : IDeck
     public void PerfectShuffle()
     {
         var leftHalf = NumberOfCards() / 2;
-        
-        Queue<Card> left = new Queue<Card>();
-        Queue<Card> right = new Queue<Card>();
-        int i = 0;
+
+        var left = new Queue<Card>();
+        var right = new Queue<Card>();
+        var i = 0;
         while (i < leftHalf)
         {
             left.Enqueue(DrawCard());
             i++;
         }
-        while (Cards.Count > 0)
-        {
-            right.Enqueue(DrawCard());
-        }
+
+        while (Cards.Count > 0) right.Enqueue(DrawCard());
 
         var getRight = true;
 
@@ -53,10 +51,9 @@ public class Deck : IDeck
             {
                 Cards.Enqueue(left.Dequeue());
             }
+
             getRight = !getRight;
         }
-        
-        
     }
 
     public int NumberOfCards()

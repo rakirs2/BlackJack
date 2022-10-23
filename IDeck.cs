@@ -6,6 +6,5 @@ public interface IDeck
     public void Shuffle();
     public void ResetDeck();
     public void PerfectShuffle();
-
     public int NumberOfCards();
 }

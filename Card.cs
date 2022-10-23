@@ -33,8 +33,8 @@ public class Card
         _rank = rank;
     }
 
-    private Suit _suit { get; }
-    private Rank _rank { get; }
+    public Suit _suit { get; }
+    public Rank _rank { get; }
 
     public override string ToString()
     {
