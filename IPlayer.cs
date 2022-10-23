@@ -8,4 +8,6 @@ public interface IPlayer
     void Hit(Deck deck);
     void Stand();
     List<Card> ShowCards();
+
+    void PutBackCards(List<Card> hand, Deck deck);
 }

@@ -20,8 +20,13 @@ public class Deck : IDeck
     }
 
 
-    public void ResetDeck()
+    public void PutBackCards(List<Card> hand)
     {
+        while (hand.Count > 0)
+        {
+            Cards.Enqueue(hand[0]);
+            hand.RemoveAt(0);
+        }
     }
 
     public void PerfectShuffle()

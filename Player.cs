@@ -7,9 +7,9 @@ public class Player : IPlayer
 
     public int GetScore()
     {
-        int score = 0;
-        int numAces = 0;
-        foreach (Card card in Hand)
+        var score = 0;
+        var numAces = 0;
+        foreach (var card in Hand)
         {
             score += Util.CardValues[card._rank];
             if (card._rank == Card.Rank.Ace)
@@ -17,11 +17,13 @@ public class Player : IPlayer
                 numAces += 1;
             }
         }
+
         while (score > 21 && numAces > 0)
         {
             score -= 10;
             numAces -= 1;
         }
+
         return score;
     }
 
@@ -40,10 +42,9 @@ public class Player : IPlayer
         return Hand;
     }
 
-    public Card Hit()
+    public void PutBackCards(List<Card> hand, Deck deck)
     {
-        throw new NotImplementedException();
+        deck.PutBackCards(Hand);
+        Hand.Clear();
     }
-
-
 }
