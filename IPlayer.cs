@@ -7,7 +7,7 @@ public interface IPlayer
     int GetScore();
     void Hit(Deck deck);
     void Stand();
-    List<Card> ShowCards();
+    string ShowCards();
 
     void PutBackCards(List<Card> hand, Deck deck);
 }

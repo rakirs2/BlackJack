@@ -38,6 +38,6 @@ public class Card
 
     public override string ToString()
     {
-        return $" {_rank} of {_suit}s";
+        return $"{_rank} of {_suit}s";
     }
 }

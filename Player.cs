@@ -37,9 +37,15 @@ public class Player : IPlayer
         Stood = true;
     }
 
-    public List<Card> ShowCards()
+    public string ShowCards()
     {
-        return Hand;
+        var output = "";
+        foreach (var card in Hand)
+        {
+            output += card + ",";
+        }
+
+        return output;
     }
 
     public void PutBackCards(List<Card> hand, Deck deck)

@@ -13,4 +13,10 @@ public class Dealer : Player
             Hit(deck);
         }
     }
+
+    private void dealCardToPlayer(Deck deck, Player player)
+    {
+        var card = deck.DrawCard();
+        player.Hand.Add(card);
+    }
 }
